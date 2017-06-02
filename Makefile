@@ -10,3 +10,6 @@ recreate-db:
 
 run-app-server:
 	nohup java -jar ./app-server/openchs-server-0.1-SNAPSHOT.jar > app-server/log/openchs-server.log 2>&1 &
+
+setup-metadata:
+	cd ../lokbiradari-vhw && make setup-health-modules setup-impl-db
