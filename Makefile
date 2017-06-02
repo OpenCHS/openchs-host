@@ -7,3 +7,6 @@ push-migrations:
 recreate-db:
 	flyway -user=openchs -password=password -url=jdbc:postgresql://localhost:5432/openchs -schemas=openchs clean
 	flyway -user=openchs -password=password -url=jdbc:postgresql://localhost:5432/openchs -schemas=openchs -locations=filesystem:./db/migration/ migrate
+
+run-app-server:
+	nohup java -jar ./app-server/openchs-server-0.1-SNAPSHOT.jar > app-server/log/openchs-server.log 2>&1 &
