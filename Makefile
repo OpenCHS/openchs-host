@@ -14,7 +14,7 @@ recreate-db:
 	flyway -user=openchs -password=password -url=jdbc:postgresql://localhost:5432/openchs -schemas=openchs -locations=filesystem:./db/migration/ migrate
 
 run_app_server:
-	(cd app-server && nohup java -Xmx150m -XX:ErrorFile=/log/jvm.log -jar openchs-server-0.1-SNAPSHOT.jar > log/openchs-server.log 2>&1 &)
+	(cd app-server && nohup java -Xmx250m -XX:ErrorFile=/log/jvm.log -jar openchs-server-0.1-SNAPSHOT.jar > log/openchs-server.log 2>&1 &)
 	tail -f app-server/log/openchs-server.log
 
 setup_metadata:
