@@ -14,9 +14,9 @@ copy_rules:
 	cp -r ../lokbiradari-vhw/deployables/*.json ./app-server/external/
 
 init_db:
-	-psql -h localhost postgres -c "create user openchs with password 'password'";
-	-psql -h localhost postgres -c 'create database openchs with owner openchs';
-	-psql -h localhost openchs -c 'create extension if not exists "uuid-ossp"';
+	-psql -Upostgres -h localhost postgres -c "create user openchs with password 'password'";
+	-psql -Upostgres -h localhost postgres -c 'create database openchs with owner openchs';
+	-psql -Upostgres -h localhost openchs -c 'create extension if not exists "uuid-ossp"';
 
 
 recreate-db:
