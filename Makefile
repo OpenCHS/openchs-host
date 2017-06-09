@@ -9,6 +9,16 @@ push_rules:
 	scp -r ../lokbiradari-vhw/output/*.js root@139.59.8.249:/root/openchs-host/app-server/external/
 	scp -r ../lokbiradari-vhw/deployables/*.json root@139.59.8.249:/root/openchs-host/app-server/external/
 
+copy_rules:
+        cp -r ../lokbiradari-vhw/output/*.js ./app-server/external/
+        cp -r ../lokbiradari-vhw/deployables/*.json ./app-server/external/
+
+init_db:
+	-psql -h localhost postgres -c "create user openchs with password 'password'";
+	-psql -h localhost postgres -c 'create database openchs with owner openchs';
+	-psql -h localhost openchs -c 'create extension if not exists "uuid-ossp"';
+
+
 recreate-db:
 	flyway -user=openchs -password=password -url=jdbc:postgresql://localhost:5432/openchs -schemas=openchs clean
 	flyway -user=openchs -password=password -url=jdbc:postgresql://localhost:5432/openchs -schemas=openchs -locations=filesystem:./db/migration/ migrate
