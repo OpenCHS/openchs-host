@@ -10,8 +10,8 @@ push_rules:
 	scp -r ../lokbiradari-vhw/deployables/*.json root@139.59.8.249:/root/openchs-host/app-server/external/
 
 copy_rules:
-        cp -r ../lokbiradari-vhw/output/*.js ./app-server/external/
-        cp -r ../lokbiradari-vhw/deployables/*.json ./app-server/external/
+	cp -r ../lokbiradari-vhw/output/*.js ./app-server/external/
+	cp -r ../lokbiradari-vhw/deployables/*.json ./app-server/external/
 
 init_db:
 	-psql -h localhost postgres -c "create user openchs with password 'password'";
