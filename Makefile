@@ -6,8 +6,8 @@ push_migrations:
 
 push_rules:
 	cd ../lokbiradari-vhw && make package_rules
-	scp -r ../lokbiradari-vhw/output/*.js root@139.59.8.249:/root/openchs-host/app-server/external/
-	scp -r ../lokbiradari-vhw/deployables/*.json root@139.59.8.249:/root/openchs-host/app-server/external/
+	cp -r ../lokbiradari-vhw/output/*.js ../openchs-host/app-server/external/
+	cp -r ../lokbiradari-vhw/deployables/customMessages.json ../openchs-host/app-server/external/
 
 copy_rules:
 	cp -r ../lokbiradari-vhw/output/*.js ./app-server/external/
